@@ -151,7 +151,16 @@ export default function Footer() {
             style={{ fontFamily: '"Open Sans", sans-serif' }}
           >
             &copy; {new Date().getFullYear()} JK Bhairava Painting Service. All
-            rights reserved.
+            rights reserved. Designed by{" "}
+            <a
+              href="https://milmantech.au"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+              style={{ textDecoration: "none" }}
+            >
+              milmantech.au
+            </a>
           </p>
           <div className="flex items-center gap-4">
             {[
