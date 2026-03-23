@@ -1,9 +1,7 @@
 /**
  * Footer Component
- * SIMPLIFIED version of the original footer.
- * Removes all template/demo content (Engine Diagnostics, News Feeds, etc.)
- * Keeps only: Business name, phone, email, simple navigation (Home, Services, Contact)
- * Clean 2-column layout on desktop, stacked on mobile.
+ * Simplified footer: business info, quick links, business hours.
+ * SEO: Proper nav element with aria-label, semantic footer tag.
  */
 import { Phone, Mail, MapPin } from "lucide-react";
 
@@ -12,7 +10,7 @@ const FOOTER_LOGO_URL =
 
 export default function Footer() {
   return (
-    <footer>
+    <footer role="contentinfo">
       {/* Main Footer */}
       <div
         className="py-16 px-4 md:px-8 lg:px-16"
@@ -24,8 +22,9 @@ export default function Footer() {
             <div>
               <img
                 src={FOOTER_LOGO_URL}
-                alt="JK Bhairava Painting Service"
+                alt="JK Bhairava Painting Service logo"
                 className="h-20 w-auto mb-6"
+                loading="lazy"
               />
               <h3
                 className="text-2xl text-white mb-4"
@@ -39,9 +38,9 @@ export default function Footer() {
               >
                 Melbourne's trusted professional painters. We deliver quality
                 interior and exterior painting services for residential and
-                commercial properties.
+                commercial properties across all Melbourne suburbs.
               </p>
-              <div className="flex flex-col gap-3">
+              <address className="not-italic flex flex-col gap-3">
                 <a
                   href="tel:0439731898"
                   className="flex items-center gap-3 text-white/80 hover:text-white transition-colors"
@@ -52,7 +51,7 @@ export default function Footer() {
                   }}
                 >
                   <Phone size={16} style={{ color: "#00ff00" }} />
-                  <span>0439731898</span>
+                  <span>0439 731 898</span>
                 </a>
                 <a
                   href="mailto:jkPainting@gmail.com"
@@ -80,7 +79,7 @@ export default function Footer() {
                   <MapPin size={16} style={{ color: "#00ff00" }} />
                   <span>21 Jamieson St, St Albans VIC 3021</span>
                 </a>
-              </div>
+              </address>
             </div>
 
             {/* Column 2: Quick Links + Hours */}
@@ -91,10 +90,12 @@ export default function Footer() {
               >
                 Quick Links
               </h4>
-              <nav className="flex flex-col gap-3 mb-8">
+              <nav aria-label="Footer navigation" className="flex flex-col gap-3 mb-8">
                 {[
                   { label: "Home", href: "#home" },
+                  { label: "About", href: "#about" },
                   { label: "Services", href: "#services" },
+                  { label: "FAQ", href: "#faq" },
                   { label: "Contact", href: "#contact" },
                 ].map((link) => (
                   <a
@@ -119,13 +120,17 @@ export default function Footer() {
                 Business Hours
               </h4>
               <div className="flex flex-col gap-2">
-                <div className="flex justify-between text-sm text-white/70 max-w-xs"
-                  style={{ fontFamily: '"Open Sans", sans-serif' }}>
-                  <span>Monday - Saturday</span>
-                  <span>7:00 AM - 8:00 PM</span>
+                <div
+                  className="flex justify-between text-sm text-white/70 max-w-xs"
+                  style={{ fontFamily: '"Open Sans", sans-serif' }}
+                >
+                  <span>Monday – Saturday</span>
+                  <span>7:00 AM – 8:00 PM</span>
                 </div>
-                <div className="flex justify-between text-sm text-white/70 max-w-xs"
-                  style={{ fontFamily: '"Open Sans", sans-serif' }}>
+                <div
+                  className="flex justify-between text-sm text-white/70 max-w-xs"
+                  style={{ fontFamily: '"Open Sans", sans-serif' }}
+                >
                   <span>Sunday</span>
                   <span style={{ color: "#e74c3c" }}>Closed</span>
                 </div>
@@ -149,17 +154,21 @@ export default function Footer() {
             rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            {["Home", "Services", "Contact"].map((link) => (
+            {[
+              { label: "Home", href: "#home" },
+              { label: "Services", href: "#services" },
+              { label: "Contact", href: "#contact" },
+            ].map((link) => (
               <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+                key={link.label}
+                href={link.href}
                 className="text-white/50 hover:text-white/80 text-xs transition-colors"
                 style={{
                   fontFamily: '"Open Sans", sans-serif',
                   textDecoration: "none",
                 }}
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>

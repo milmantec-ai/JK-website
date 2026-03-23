@@ -1,8 +1,7 @@
 /**
  * TestimonialsSection Component
- * Replicates the "Clients Feedbacks" section from the original site.
- * Carousel with testimonial cards showing project photos, quotes, and client info.
- * Gray dotted background pattern, green subtitle, Rajdhani heading.
+ * "Clients Feedbacks" carousel with project photos and testimonials.
+ * SEO: h2 for section, proper alt text, lazy loading, aria labels.
  */
 import { useState, useCallback, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -14,6 +13,7 @@ const testimonials = [
   {
     image:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/testimonial-1_959ba009.jpg",
+    imageAlt: "Interior painting project completed for Michael T. in Melbourne",
     quote:
       "Excellent painting work and very professional team. The finish on our interior walls looks perfect and the job was completed on time. Highly recommend their services.",
     name: "Michael T.",
@@ -24,6 +24,7 @@ const testimonials = [
   {
     image:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/testimonial-2_ce13d0f8.jpg",
+    imageAlt: "Exterior house painting completed for Sarah L. in Melbourne suburbs",
     quote:
       "We hired them for exterior house painting and the results were fantastic. Clean work, great communication, and very reliable from start to finish.",
     name: "Sarah L.",
@@ -34,6 +35,7 @@ const testimonials = [
   {
     image:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/testimonial-3_fa3fe192.jpg",
+    imageAlt: "Residential painting transformation by JK Bhairava Painting Service",
     quote:
       "Professional painters with great attention to detail. They transformed our home with high-quality finishes and left everything clean after the job.",
     name: "James Carter",
@@ -44,6 +46,7 @@ const testimonials = [
   {
     image:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/testimonial-4_66637f70.jpg",
+    imageAlt: "Commercial property painting project completed for Jason K.",
     quote:
       "Very happy with the painting work on our commercial property. The team was efficient, friendly, and delivered excellent results.",
     name: "Jason K.",
@@ -86,6 +89,7 @@ export default function TestimonialsSection() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      aria-label="Client testimonials and reviews"
     >
       {/* Light overlay */}
       <div className="absolute inset-0 bg-gray-100/90" />
@@ -121,11 +125,14 @@ export default function TestimonialsSection() {
             <button
               onClick={prev}
               disabled={current === 0}
-              className="w-12 h-12 flex items-center justify-center text-white transition-all duration-300 disabled:opacity-50"
+              className="w-12 h-12 flex items-center justify-center transition-all duration-300 disabled:opacity-50"
               style={{ backgroundColor: current === 0 ? "#ccc" : "#00ff00" }}
               aria-label="Previous testimonial"
             >
-              <ChevronLeft size={20} style={{ color: current === 0 ? "#999" : "#0d1b2a" }} />
+              <ChevronLeft
+                size={20}
+                style={{ color: current === 0 ? "#999" : "#0d1b2a" }}
+              />
             </button>
             <button
               onClick={next}
@@ -153,7 +160,7 @@ export default function TestimonialsSection() {
             }}
           >
             {testimonials.map((t, index) => (
-              <div
+              <article
                 key={index}
                 className="flex-shrink-0 bg-white shadow-md overflow-hidden"
                 style={{
@@ -164,37 +171,39 @@ export default function TestimonialsSection() {
                 <div className="h-56 overflow-hidden">
                   <img
                     src={t.image}
-                    alt={`Work by ${t.name}`}
+                    alt={t.imageAlt}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 {/* Quote + Info */}
                 <div className="p-6">
-                  <p
+                  <blockquote
                     className="text-sm leading-relaxed mb-5"
                     style={{
                       fontFamily: '"Open Sans", sans-serif',
                       color: "#555",
                     }}
                   >
-                    {t.quote}
-                  </p>
+                    "{t.quote}"
+                  </blockquote>
                   <div className="flex items-center gap-3">
                     <img
                       src={t.avatar}
-                      alt={t.name}
+                      alt={`${t.name} - ${t.role}`}
+                      loading="lazy"
                       className="w-12 h-12 rounded-full object-cover"
                     />
                     <div>
-                      <h4
-                        className="text-base font-bold"
+                      <cite
+                        className="text-base font-bold not-italic block"
                         style={{
                           fontFamily: '"Rajdhani", sans-serif',
                           color: "#0d1b2a",
                         }}
                       >
                         {t.name}
-                      </h4>
+                      </cite>
                       <span
                         className="text-xs"
                         style={{
@@ -207,7 +216,7 @@ export default function TestimonialsSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

@@ -1,15 +1,15 @@
 /**
  * ServicesSection Component
- * Replicates the "Our Core Painting Services" section from the original site.
- * 4 service cards with icons, titles, and descriptions.
- * Light background, green subtitle, Rajdhani heading with red dot.
+ * "Our Core Painting Services" section with 4 service cards.
+ * SEO: h2 for section title, h3 for each service, aria-label on section.
+ * Matches existing site style: white bg, green subtitle, red dot, Rajdhani headings.
  */
 
 const services = [
   {
     title: "Interior Painting",
     description:
-      "Professional interior painting that refreshes your home with smooth finishes and high-quality paints.",
+      "Professional interior painting that refreshes your home with smooth finishes and high-quality paints. We handle walls, ceilings, trims, and feature walls.",
     icon: (
       <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
         <rect x="8" y="16" width="48" height="40" rx="2" />
@@ -23,7 +23,7 @@ const services = [
   {
     title: "Exterior Painting",
     description:
-      "Durable exterior painting designed to protect your property from weather and enhance its appearance.",
+      "Durable exterior painting designed to protect your property from Melbourne weather and enhance its kerb appeal with long-lasting finishes.",
     icon: (
       <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
         <path d="M8 56h48" />
@@ -38,7 +38,7 @@ const services = [
   {
     title: "Residential Painting",
     description:
-      "Complete house painting services delivering clean, precise, and long-lasting results.",
+      "Complete house painting services delivering clean, precise, and long-lasting results for homes across Melbourne's suburbs.",
     icon: (
       <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
         <path d="M4 32l28-24 28 24" />
@@ -53,7 +53,7 @@ const services = [
   {
     title: "Commercial Painting",
     description:
-      "Reliable commercial painting for offices, shops, and buildings with minimal disruption.",
+      "Reliable commercial painting for offices, shops, warehouses, and buildings with minimal disruption to your business operations.",
     icon: (
       <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
         <rect x="8" y="12" width="24" height="44" rx="1" />
@@ -78,6 +78,7 @@ export default function ServicesSection() {
       id="services"
       className="py-20 px-4 md:px-8 lg:px-16"
       style={{ backgroundColor: "#ffffff" }}
+      aria-label="Our core painting services"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
@@ -108,11 +109,14 @@ export default function ServicesSection() {
         {/* Service Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service) => (
-            <div
+            <article
               key={service.title}
               className="bg-white border border-gray-100 p-8 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group"
             >
-              <div className="mb-5 flex justify-center group-hover:scale-110 transition-transform duration-300">
+              <div
+                className="mb-5 flex justify-center group-hover:scale-110 transition-transform duration-300"
+                aria-hidden="true"
+              >
                 {service.icon}
               </div>
               <h3
@@ -134,7 +138,7 @@ export default function ServicesSection() {
               >
                 {service.description}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>

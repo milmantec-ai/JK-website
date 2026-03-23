@@ -131,7 +131,13 @@
   }
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling with offset for fixed header */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+/* Scroll target offset for anchor links */
+[id] {
+  scroll-margin-top: 120px;
 }

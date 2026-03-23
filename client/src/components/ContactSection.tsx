@@ -1,14 +1,11 @@
 /**
  * ContactSection Component
- * Replicates the contact form from the original site.
- * Includes the "GET A FREE QUOTE" button and form fields.
- * Positioned below the hero slider, matching original layout.
+ * Contact form section - "GET A FREE QUOTE" CTA + form fields.
+ * CHANGE: Removed the before/during/after image as requested.
+ * SEO: Proper heading hierarchy (h2), semantic form labels, aria attributes.
  */
 import { useState } from "react";
-import { MessageSquare } from "lucide-react";
-
-const BEFORE_AFTER_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/before-during-after_f70d397d.png";
+import { MessageSquare, Phone } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -19,18 +16,55 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, this would send the form data
     alert("Thank you for your message! We will get back to you soon.");
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <section id="contact" className="py-16 px-4 md:px-8 lg:px-16" style={{ backgroundColor: "#f0f4f5" }}>
+    <section
+      id="contact"
+      className="py-16 px-4 md:px-8 lg:px-16"
+      style={{ backgroundColor: "#f0f4f5" }}
+      aria-label="Contact us for a free painting quote"
+    >
       <div className="max-w-6xl mx-auto">
-        {/* CTA + Before/After Row */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
+        {/* Section Header */}
+        <div className="text-center mb-10">
+          <p
+            className="text-sm uppercase tracking-[3px] mb-3"
+            style={{
+              color: "#00ff00",
+              fontFamily: '"Open Sans", sans-serif',
+              fontWeight: 600,
+            }}
+          >
+            // GET IN TOUCH //
+          </p>
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl mb-4"
+            style={{
+              fontFamily: '"Rajdhani", sans-serif',
+              fontWeight: 700,
+              color: "#0d1b2a",
+            }}
+          >
+            Request a Free Quote<span style={{ color: "#e74c3c" }}>.</span>
+          </h2>
+          <p
+            className="text-base max-w-2xl mx-auto"
+            style={{
+              fontFamily: '"Open Sans", sans-serif',
+              color: "#666",
+            }}
+          >
+            Get in touch with our team for a no-obligation quote on your painting project. We service all areas across Melbourne.
+          </p>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <a
-            href="#contact"
+            href="tel:0439731898"
             className="inline-flex items-center gap-3 px-10 py-5 text-white text-base font-semibold uppercase tracking-wider transition-all duration-300 hover:opacity-90"
             style={{
               backgroundColor: "#e74c3c",
@@ -38,25 +72,30 @@ export default function ContactSection() {
               textDecoration: "none",
             }}
           >
+            <Phone size={20} />
+            CALL 0439 731 898
+          </a>
+          <a
+            href="mailto:jkPainting@gmail.com"
+            className="inline-flex items-center gap-3 px-10 py-5 text-sm font-semibold uppercase tracking-wider border-2 transition-all duration-300 hover:bg-gray-800 hover:text-white hover:border-gray-800"
+            style={{
+              color: "#0d1b2a",
+              borderColor: "#0d1b2a",
+              fontFamily: '"Open Sans", sans-serif',
+              textDecoration: "none",
+            }}
+          >
             <MessageSquare size={20} />
-            GET A FREE QUOTE
+            EMAIL US
           </a>
         </div>
 
-        {/* Before/During/After Image */}
-        <div className="flex justify-center mb-12">
-          <img
-            src={BEFORE_AFTER_IMG}
-            alt="Before During After"
-            className="max-w-full md:max-w-2xl h-auto"
-          />
-        </div>
-
         {/* Contact Form */}
-        <div className="max-w-3xl mx-auto bg-white/80 backdrop-blur-sm p-8 md:p-12">
+        <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label
+                htmlFor="contact-name"
                 className="block text-sm font-semibold mb-2"
                 style={{
                   fontFamily: '"Open Sans", sans-serif',
@@ -66,8 +105,10 @@ export default function ContactSection() {
                 Name <span style={{ color: "#e74c3c" }}>*</span>
               </label>
               <input
+                id="contact-name"
                 type="text"
                 required
+                autoComplete="name"
                 value={formData.name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
@@ -78,6 +119,7 @@ export default function ContactSection() {
             </div>
             <div>
               <label
+                htmlFor="contact-email"
                 className="block text-sm font-semibold mb-2"
                 style={{
                   fontFamily: '"Open Sans", sans-serif',
@@ -87,8 +129,10 @@ export default function ContactSection() {
                 Email <span style={{ color: "#e74c3c" }}>*</span>
               </label>
               <input
+                id="contact-email"
                 type="email"
                 required
+                autoComplete="email"
                 value={formData.email}
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
@@ -99,6 +143,7 @@ export default function ContactSection() {
             </div>
             <div>
               <label
+                htmlFor="contact-message"
                 className="block text-sm font-semibold mb-2"
                 style={{
                   fontFamily: '"Open Sans", sans-serif',
@@ -108,6 +153,7 @@ export default function ContactSection() {
                 Comment or Message
               </label>
               <textarea
+                id="contact-message"
                 rows={5}
                 value={formData.message}
                 onChange={(e) =>

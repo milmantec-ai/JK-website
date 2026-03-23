@@ -1,8 +1,9 @@
 /**
  * HeroSlider Component
- * Replaces the original static hero section with a 3-slide carousel.
- * Design: Matches existing site style - dark overlay on images, white text,
- * green subtitle, red CTA button, Rajdhani headings, Open Sans body.
+ * 3-slide carousel replacing the original static hero.
+ * SEO: Only the active slide renders an h1 tag; inactive slides use div
+ * to maintain a single h1 per page. Proper aria labels on controls.
+ * Design: Dark overlay, white text, green subtitle, red CTA, Rajdhani headings.
  */
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -62,19 +63,68 @@ export default function HeroSlider() {
     return () => clearInterval(timer);
   }, [next]);
 
+  const renderHeading = (text: string, isActive: boolean) => {
+    const lines = text.split("\n");
+    const content = lines.map((line, i) => (
+      <span key={i}>
+        {line}
+        {i < lines.length - 1 && <br />}
+      </span>
+    ));
+
+    // Only the active slide gets the h1 for SEO
+    if (isActive) {
+      return (
+        <h1
+          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 leading-tight"
+          style={{
+            fontFamily: '"Rajdhani", sans-serif',
+            fontWeight: 700,
+            lineHeight: 1.1,
+          }}
+        >
+          {content}
+        </h1>
+      );
+    }
+    return (
+      <div
+        className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 leading-tight"
+        style={{
+          fontFamily: '"Rajdhani", sans-serif',
+          fontWeight: 700,
+          lineHeight: 1.1,
+        }}
+        aria-hidden="true"
+      >
+        {content}
+      </div>
+    );
+  };
+
   return (
-    <section className="relative w-full h-[600px] md:h-[700px] lg:h-[750px] overflow-hidden">
+    <section
+      className="relative w-full h-[600px] md:h-[700px] lg:h-[750px] overflow-hidden"
+      aria-label="Hero slideshow showcasing painting services"
+      role="region"
+    >
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={index}
           className="absolute inset-0 transition-opacity duration-700 ease-in-out"
-          style={{ opacity: current === index ? 1 : 0, zIndex: current === index ? 1 : 0 }}
+          style={{
+            opacity: current === index ? 1 : 0,
+            zIndex: current === index ? 1 : 0,
+          }}
+          aria-hidden={current !== index}
         >
           {/* Background Image */}
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${slide.image})` }}
+            role="img"
+            aria-label={`Professional painting service - ${slide.heading.replace("\n", " ")}`}
           />
           {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black/50" />
@@ -96,27 +146,16 @@ export default function HeroSlider() {
                   {slide.subtitle}
                 </p>
 
-                {/* Heading */}
-                <h1
-                  className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 leading-tight"
-                  style={{
-                    fontFamily: '"Rajdhani", sans-serif',
-                    fontWeight: 700,
-                    lineHeight: 1.1,
-                  }}
-                >
-                  {slide.heading.split("\n").map((line, i) => (
-                    <span key={i}>
-                      {line}
-                      {i < slide.heading.split("\n").length - 1 && <br />}
-                    </span>
-                  ))}
-                </h1>
+                {/* Heading - h1 only for active slide */}
+                {renderHeading(slide.heading, current === index)}
 
                 {/* Description */}
                 <p
                   className="text-base md:text-lg text-white/80 mb-8 max-w-lg"
-                  style={{ fontFamily: '"Open Sans", sans-serif', fontWeight: 400 }}
+                  style={{
+                    fontFamily: '"Open Sans", sans-serif',
+                    fontWeight: 400,
+                  }}
                 >
                   {slide.description}
                 </p>
@@ -131,6 +170,7 @@ export default function HeroSlider() {
                       fontFamily: '"Open Sans", sans-serif',
                       letterSpacing: "1px",
                     }}
+                    tabIndex={current === index ? 0 : -1}
                   >
                     Get a Quote
                   </a>
@@ -141,6 +181,7 @@ export default function HeroSlider() {
                       fontFamily: '"Open Sans", sans-serif',
                       letterSpacing: "1px",
                     }}
+                    tabIndex={current === index ? 0 : -1}
                   >
                     Our Services
                   </a>
@@ -168,11 +209,17 @@ export default function HeroSlider() {
       </button>
 
       {/* Dot Navigation */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3"
+        role="tablist"
+        aria-label="Slide navigation"
+      >
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
+            role="tab"
+            aria-selected={current === index}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               current === index
                 ? "bg-white scale-125"

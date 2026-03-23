@@ -1,41 +1,45 @@
 /**
  * GallerySection Component
- * Replicates the full-width image gallery from the original site.
- * Shows painting project photos in a grid layout.
+ * Full-width image gallery showcasing painting projects.
+ * SEO: Descriptive alt text on each image, lazy loading.
  */
 
 const galleryImages = [
   {
     src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/testimonial-4_66637f70.jpg",
-    label: "Painting House",
-    title: "House",
+    alt: "Exterior house painting project in Melbourne showing freshly painted weatherboard home",
+    label: "Exterior Painting",
   },
   {
     src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/testimonial-2_ce13d0f8.jpg",
-    label: "Painting House",
-    title: "House",
+    alt: "Residential painting project featuring a newly painted house exterior with white trim",
+    label: "Residential Painting",
   },
   {
     src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/testimonial-3_fa3fe192.jpg",
-    label: "Painting House",
-    title: "House",
+    alt: "Professional painters completing an interior painting job in a Melbourne home",
+    label: "Interior Painting",
   },
   {
     src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/testimonial-1_959ba009.jpg",
-    label: "Painting House",
-    title: "House",
+    alt: "Completed commercial painting project showing clean professional finish",
+    label: "Commercial Painting",
   },
 ];
 
 export default function GallerySection() {
   return (
-    <section className="w-full">
+    <section aria-label="Gallery of our painting projects" className="w-full">
       <div className="grid grid-cols-2 md:grid-cols-4">
         {galleryImages.map((img, index) => (
-          <div key={index} className="relative group overflow-hidden aspect-square">
+          <div
+            key={index}
+            className="relative group overflow-hidden aspect-square"
+          >
             <img
               src={img.src}
-              alt={img.title}
+              alt={img.alt}
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             {/* Overlay on hover */}
@@ -48,13 +52,16 @@ export default function GallerySection() {
                     fontFamily: '"Open Sans", sans-serif',
                   }}
                 >
-                  {img.label}
+                  Our Work
                 </p>
                 <h3
-                  className="text-2xl text-white"
-                  style={{ fontFamily: '"Rajdhani", sans-serif', fontWeight: 700 }}
+                  className="text-xl text-white"
+                  style={{
+                    fontFamily: '"Rajdhani", sans-serif',
+                    fontWeight: 700,
+                  }}
                 >
-                  {img.title}
+                  {img.label}
                 </h3>
               </div>
             </div>
