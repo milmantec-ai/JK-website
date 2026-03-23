@@ -3,7 +3,7 @@
  * Top bar + main navigation matching original site design.
  * SEO: Semantic nav element, aria labels, proper link structure.
  */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 
 const LOGO_URL =
@@ -19,12 +19,21 @@ const navLinks = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="w-full relative z-50" role="banner">
-      {/* Top Bar */}
+    <header className="w-full sticky top-0 z-50" role="banner">
+      {/* Top Bar - hides on scroll */}
       <div
-        className="w-full py-2 px-4 md:px-8 lg:px-16 flex flex-wrap items-center justify-between text-sm"
+        className={`w-full px-4 md:px-8 lg:px-16 flex flex-wrap items-center justify-between text-sm transition-all duration-300 overflow-hidden ${scrolled ? "max-h-0 py-0 opacity-0" : "max-h-20 py-2 opacity-100"}`}
         style={{ backgroundColor: "#0d1b2a", color: "#ffffff" }}
       >
         <div className="flex items-center gap-6 flex-wrap">
@@ -71,9 +80,9 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main Navigation */}
+      {/* Main Navigation - always visible */}
       <div
-        className="w-full py-3 px-4 md:px-8 lg:px-16 flex items-center justify-between"
+        className={`w-full px-4 md:px-8 lg:px-16 flex items-center justify-between transition-all duration-300 ${scrolled ? "py-2 shadow-md" : "py-3"}`}
         style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #eee" }}
       >
         {/* Logo + Phone */}
