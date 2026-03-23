@@ -1,25 +1,31 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
 /**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+ * Home Page
+ * Assembles all sections in the same order as the original WordPress site.
+ * MODIFIED sections: HeroSlider (was static hero), Footer (simplified)
+ * PRESERVED sections: Header, Contact, Services, Testimonials, Gallery
  */
-export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+import Header from "@/components/Header";
+import HeroSlider from "@/components/HeroSlider";
+import ContactSection from "@/components/ContactSection";
+import ServicesSection from "@/components/ServicesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import GallerySection from "@/components/GallerySection";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
+export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
+    <div id="home" className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1">
+        <HeroSlider />
+        <ContactSection />
+        <ServicesSection />
+        <TestimonialsSection />
+        <GallerySection />
       </main>
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 }
