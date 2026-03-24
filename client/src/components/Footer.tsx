@@ -82,7 +82,7 @@ export default function Footer() {
               </address>
             </div>
 
-            {/* Column 2: Quick Links + Hours */}
+            {/* Column 2: Quick Links */}
             <div className="md:pl-8">
               <h4
                 className="text-xl text-white mb-6"
@@ -112,10 +112,6 @@ export default function Footer() {
                   </a>
                 ))}
               </nav>
-
-              
-                </div>
-              </div>
             </div>
           </div>
         </div>
