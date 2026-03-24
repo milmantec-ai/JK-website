@@ -7,9 +7,9 @@
 
 const services = [
   {
-    title: "Interior Painting",
+    title: "Residential Painting",
     description:
-      "Professional interior painting that refreshes your home with smooth finishes and high-quality paints. We handle walls, ceilings, trims, and feature walls.",
+      "Complete residential painting services for homes across Melbourne's suburbs. We deliver clean, precise finishes with high-quality paints for walls, ceilings, trims, and feature walls.",
     icon: (
       <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
         <rect x="8" y="16" width="48" height="40" rx="2" />
@@ -21,9 +21,9 @@ const services = [
     ),
   },
   {
-    title: "Exterior Painting",
+    title: "Commercial Painting",
     description:
-      "Durable exterior painting designed to protect your property from Melbourne weather and enhance its kerb appeal with long-lasting finishes.",
+      "Reliable commercial painting for offices, shops, warehouses, and buildings with minimal disruption to your business operations and professional finishes.",
     icon: (
       <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
         <path d="M8 56h48" />
