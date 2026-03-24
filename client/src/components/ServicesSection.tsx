@@ -70,6 +70,26 @@ const services = [
       </svg>
     ),
   },
+  {
+    title: "Commercial Painting",
+    description:
+      "Reliable commercial painting for offices, shops, warehouses, and buildings with minimal disruption to your business operations.",
+    icon: (
+      <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
+        <rect x="8" y="12" width="24" height="44" rx="1" />
+        <rect x="32" y="24" width="24" height="32" rx="1" />
+        <rect x="14" y="20" width="6" height="6" />
+        <rect x="14" y="32" width="6" height="6" />
+        <rect x="14" y="44" width="6" height="6" />
+        <rect x="22" y="20" width="6" height="6" />
+        <rect x="22" y="32" width="6" height="6" />
+        <rect x="38" y="32" width="6" height="6" />
+        <rect x="38" y="44" width="6" height="6" />
+        <rect x="46" y="32" width="6" height="6" />
+        <rect x="46" y="44" width="6" height="6" />
+      </svg>
+    ),
+  }
 ];
 
 export default function ServicesSection() {
