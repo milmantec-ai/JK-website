@@ -29,6 +29,7 @@ export default function ContactSection() {
       toast.success("Thank you! Your message has been sent. We'll get back to you soon.");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
+      console.error("Contact form error:", error);
       toast.error("Failed to send message. Please try again.");
     }
   };

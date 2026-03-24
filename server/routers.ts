@@ -30,18 +30,31 @@ export const appRouter = router({
       )
       .mutation(async ({ input }) => {
         try {
-          // Configure email transporter using Gmail
+          const gmailUser = process.env.GMAIL_USER;
+          const gmailPassword = process.env.GMAIL_PASSWORD;
+
+          if (!gmailUser || !gmailPassword) {
+            console.error("Gmail credentials missing", {
+              hasUser: !!gmailUser,
+              hasPassword: !!gmailPassword,
+            });
+            throw new Error("Email service not configured");
+          }
+
+          // Configure email transporter using Gmail with explicit SMTP settings
           const transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
             auth: {
-              user: process.env.GMAIL_USER || "jkbpaintings@gmail.com",
-              pass: process.env.GMAIL_PASSWORD || "",
+              user: gmailUser,
+              pass: gmailPassword,
             },
           });
 
           // Send email
           await transporter.sendMail({
-            from: process.env.GMAIL_USER || "jkbpaintings@gmail.com",
+            from: gmailUser,
             to: "jkbpaintings@gmail.com",
             subject: `New Contact Form Submission from ${input.name}`,
             html: `
@@ -59,8 +72,12 @@ export const appRouter = router({
             message: "Email sent successfully",
           };
         } catch (error) {
-          console.error("Email error:", error);
-          throw new Error("Failed to send email");
+          const errorMsg = error instanceof Error ? error.message : "Unknown error";
+          console.error("Email error:", {
+            message: errorMsg,
+            code: (error as any)?.code,
+          });
+          throw new Error("Failed to send email: " + errorMsg);
         }
       }),
   }),
