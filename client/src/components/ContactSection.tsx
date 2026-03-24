@@ -7,6 +7,7 @@
 import { useState } from "react";
 import { MessageSquare, Phone } from "lucide-react";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,36 +15,21 @@ export default function ContactSection() {
     email: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const contactMutation = trpc.contact.submit.useMutation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+      await contactMutation.mutateAsync({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
       });
-
-      const data = await response.json();
-      if (response.ok && data.success) {
-        toast.success("Thank you! Your message has been sent. We'll get back to you soon.");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        toast.error(data.error || "Something went wrong. Please try again.");
-      }
+      toast.success("Thank you! Your message has been sent. We'll get back to you soon.");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       toast.error("Failed to send message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -186,20 +172,21 @@ export default function ContactSection() {
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
-                className="w-full px-4 py-3 border border-gray-200 text-sm focus:outline-none focus:border-green-400 transition-colors resize-vertical"
+                className="w-full px-4 py-3 border border-gray-200 text-sm focus:outline-none focus:border-green-400 transition-colors disabled:opacity-50"
+                disabled={contactMutation.isPending}
                 style={{ fontFamily: '"Open Sans", sans-serif' }}
               />
             </div>
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={contactMutation.isPending}
               className="px-8 py-3 text-white text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{
                 backgroundColor: "#e74c3c",
                 fontFamily: '"Open Sans", sans-serif',
               }}
             >
-              {isSubmitting ? "Sending..." : "Submit"}
+              {contactMutation.isPending ? "Sending..." : "Submit"}
             </button>
           </form>
         </div>

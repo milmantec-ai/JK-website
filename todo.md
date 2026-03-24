@@ -9,4 +9,7 @@
 - [x] Ensure proper heading hierarchy (single h1 in hero, h2 for sections, h3 for sub-items)
 - [x] Add alt text to all images for accessibility/SEO
 - [x] Verify all nav links scroll smoothly to correct sections (smooth scroll CSS added)
-- [ ] Test the complete single-page flow
+- [x] Test the complete single-page flow
+- [x] Configure Gmail credentials (GMAIL_USER and GMAIL_PASSWORD)
+- [x] Integrate contact form with tRPC backend
+- [x] Write and run vitest tests for contact submission
