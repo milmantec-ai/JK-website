@@ -1,6 +1,6 @@
 /**
  * ServicesSection Component
- * "Our Core Painting Services" section with 4 service cards.
+ * "Our Core Painting Services" section with 5 service cards.
  * SEO: h2 for section title, h3 for each service, aria-label on section.
  * Matches existing site style: white bg, green subtitle, red dot, Rajdhani headings.
  */
@@ -36,57 +36,45 @@ const services = [
     ),
   },
   {
-    title: "Residential Painting",
+    title: "Epoxy Floor Painting",
     description:
-      "Complete house painting services delivering clean, precise, and long-lasting results for homes across Melbourne's suburbs.",
+      "Durable epoxy floor coatings for garages, warehouses, and commercial spaces. Resistant to stains, chemicals, and heavy traffic with a professional finish.",
     icon: (
       <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
-        <path d="M4 32l28-24 28 24" />
-        <path d="M12 28v28h40V28" />
-        <rect x="24" y="36" width="16" height="20" />
-        <path d="M32 36v20" />
-        <rect x="16" y="32" width="6" height="6" />
-        <rect x="42" y="32" width="6" height="6" />
+        <rect x="8" y="20" width="48" height="36" rx="2" />
+        <path d="M8 28h48" />
+        <path d="M16 36h32" />
+        <path d="M16 44h32" />
+        <circle cx="20" cy="24" r="2" fill="#e74c3c" />
+        <circle cx="44" cy="24" r="2" fill="#e74c3c" />
       </svg>
     ),
   },
   {
-    title: "Commercial Painting",
+    title: "Roof Restoration",
     description:
-      "Reliable commercial painting for offices, shops, warehouses, and buildings with minimal disruption to your business operations.",
+      "Professional roof restoration and painting to protect your home from the elements. We restore colour and extend the life of your roof with premium coatings.",
     icon: (
       <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
-        <rect x="8" y="12" width="24" height="44" rx="1" />
-        <rect x="32" y="24" width="24" height="32" rx="1" />
-        <rect x="14" y="20" width="6" height="6" />
-        <rect x="14" y="32" width="6" height="6" />
-        <rect x="14" y="44" width="6" height="6" />
-        <rect x="22" y="20" width="6" height="6" />
-        <rect x="22" y="32" width="6" height="6" />
-        <rect x="38" y="32" width="6" height="6" />
-        <rect x="38" y="44" width="6" height="6" />
-        <rect x="46" y="32" width="6" height="6" />
-        <rect x="46" y="44" width="6" height="6" />
+        <path d="M8 40h48" />
+        <path d="M12 40V24l20-12 20 12v16" />
+        <path d="M20 32h24" />
+        <path d="M24 36h16" />
       </svg>
     ),
   },
   {
-    title: "Commercial Painting",
+    title: "Colour Consultation",
     description:
-      "Reliable commercial painting for offices, shops, warehouses, and buildings with minimal disruption to your business operations.",
+      "Expert colour selection service to help you choose the perfect palette for your space. We guide you through options to match your style and vision.",
     icon: (
       <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#e74c3c" strokeWidth="2">
-        <rect x="8" y="12" width="24" height="44" rx="1" />
-        <rect x="32" y="24" width="24" height="32" rx="1" />
-        <rect x="14" y="20" width="6" height="6" />
-        <rect x="14" y="32" width="6" height="6" />
-        <rect x="14" y="44" width="6" height="6" />
-        <rect x="22" y="20" width="6" height="6" />
-        <rect x="22" y="32" width="6" height="6" />
-        <rect x="38" y="32" width="6" height="6" />
-        <rect x="38" y="44" width="6" height="6" />
-        <rect x="46" y="32" width="6" height="6" />
-        <rect x="46" y="44" width="6" height="6" />
+        <circle cx="32" cy="32" r="20" />
+        <circle cx="24" cy="24" r="3" fill="#e74c3c" />
+        <circle cx="40" cy="24" r="3" fill="#e74c3c" />
+        <circle cx="20" cy="40" r="3" fill="#e74c3c" />
+        <circle cx="44" cy="40" r="3" fill="#e74c3c" />
+        <path d="M28 48c4 2 8 2 8 0" />
       </svg>
     ),
   }
@@ -124,10 +112,19 @@ export default function ServicesSection() {
             Our Core Painting Services
             <span style={{ color: "#e74c3c" }}>.</span>
           </h2>
+          <p
+            className="text-base mt-4 max-w-3xl mx-auto"
+            style={{
+              fontFamily: '"Open Sans", sans-serif',
+              color: "#666",
+            }}
+          >
+            From interior and exterior painting to epoxy floors and roof restoration, we specialise in helping you choose the right colour for every project.
+          </p>
         </div>
 
         {/* Service Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {services.map((service) => (
             <article
               key={service.title}
@@ -140,7 +137,7 @@ export default function ServicesSection() {
                 {service.icon}
               </div>
               <h3
-                className="text-xl mb-3"
+                className="text-lg mb-3"
                 style={{
                   fontFamily: '"Rajdhani", sans-serif',
                   fontWeight: 700,

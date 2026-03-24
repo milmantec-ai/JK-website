@@ -23,3 +23,11 @@
 - [ ] Build before/after case study posts
 - [ ] Add blog route /blog and individual post route /blog/:slug
 - [ ] Add Blog link to navigation
+
+## New Features (Round 4)
+
+- [x] Add Epoxy Floor Painting service to ServicesSection (5 total services)
+- [x] Add Roof Restoration service to ServicesSection
+- [x] Update section intro to mention color consultation specialization
+- [x] Test services display and styling
+- [ ] Save checkpoint with new services
