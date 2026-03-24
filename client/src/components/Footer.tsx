@@ -113,26 +113,7 @@ export default function Footer() {
                 ))}
               </nav>
 
-              <h4
-                className="text-xl text-white mb-4"
-                style={{ fontFamily: '"Rajdhani", sans-serif', fontWeight: 700 }}
-              >
-                Business Hours
-              </h4>
-              <div className="flex flex-col gap-2">
-                <div
-                  className="flex justify-between text-sm text-white/70 max-w-xs"
-                  style={{ fontFamily: '"Open Sans", sans-serif' }}
-                >
-                  <span>Monday – Saturday</span>
-                  <span>7:00 AM – 8:00 PM</span>
-                </div>
-                <div
-                  className="flex justify-between text-sm text-white/70 max-w-xs"
-                  style={{ fontFamily: '"Open Sans", sans-serif' }}
-                >
-                  <span>Sunday</span>
-                  <span style={{ color: "#e74c3c" }}>Closed</span>
+              
                 </div>
               </div>
             </div>
