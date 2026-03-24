@@ -35,7 +35,7 @@ const testimonials = [
   {
     image:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/testimonial-3_fa3fe192.jpg",
-    imageAlt: "Residential painting transformation by JK Bhairava Painting Service",
+    imageAlt: "Residential painting transformation by JK Bairava Painting Service",
     quote:
       "Professional painters with great attention to detail. They transformed our home with high-quality finishes and left everything clean after the job.",
     name: "James Carter",

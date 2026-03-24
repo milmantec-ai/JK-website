@@ -1,4 +1,4 @@
-# Design Brainstorm: JK Bhairava Painting Service Website
+# Design Brainstorm: JK Bairava Painting Service Website
 
 Since this is a **replication** of an existing WordPress website with only two targeted modifications (hero slider and footer simplification), the design approach must faithfully match the existing site's aesthetic rather than introduce a new design system.
 

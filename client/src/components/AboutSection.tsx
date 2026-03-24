@@ -28,7 +28,7 @@ export default function AboutSection() {
       id="about"
       className="py-20 px-4 md:px-8 lg:px-16"
       style={{ backgroundColor: "#0d1b2a" }}
-      aria-label="About JK Bhairava Painting Service"
+      aria-label="About JK Bairava Painting Service"
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -59,7 +59,7 @@ export default function AboutSection() {
               className="text-white/75 text-base leading-relaxed mb-6"
               style={{ fontFamily: '"Open Sans", sans-serif' }}
             >
-              JK Bhairava Painting Service has been delivering high-quality painting
+              JK Bairava Painting Service has been delivering high-quality painting
               solutions across Melbourne for over a decade. From single-room refreshes
               to complete exterior transformations, our experienced team brings
               precision, care, and professionalism to every project.

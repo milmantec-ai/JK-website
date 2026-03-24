@@ -36,7 +36,7 @@ const faqs = [
   {
     question: "Are you licensed and insured?",
     answer:
-      "Yes, JK Bhairava Painting Service is fully licensed and insured. We carry public liability insurance and all our painters are experienced professionals. You can trust us to deliver safe, high-quality work on your property.",
+      "Yes, JK Bairava Painting Service is fully licensed and insured. We carry public liability insurance and all our painters are experienced professionals. You can trust us to deliver safe, high-quality work on your property.",
   },
 ];
 

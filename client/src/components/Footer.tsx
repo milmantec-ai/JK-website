@@ -22,7 +22,7 @@ export default function Footer() {
             <div>
               <img
                 src={FOOTER_LOGO_URL}
-                alt="JK Bhairava Painting Service logo"
+                alt="JK Bairava Painting Service logo"
                 className="h-20 w-auto mb-6"
                 loading="lazy"
               />
@@ -30,7 +30,7 @@ export default function Footer() {
                 className="text-2xl text-white mb-4"
                 style={{ fontFamily: '"Rajdhani", sans-serif', fontWeight: 700 }}
               >
-                JK Bhairava Painting Service
+                JK Bairava Painting Service
               </h3>
               <p
                 className="text-white/70 text-sm leading-relaxed mb-6 max-w-md"
@@ -128,7 +128,7 @@ export default function Footer() {
               className="text-white/50 text-xs"
               style={{ fontFamily: '"Open Sans", sans-serif' }}
             >
-              &copy; {new Date().getFullYear()} JK Bhairava Painting Service. All rights reserved.
+              &copy; {new Date().getFullYear()} JK Bairava Painting Service. All rights reserved.
             </p>
             <p
               className="text-white/50 text-xs"

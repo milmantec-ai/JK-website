@@ -88,10 +88,10 @@ export default function Header() {
       >
         {/* Logo + Phone */}
         <div className="flex items-center gap-4">
-          <a href="#home" aria-label="JK Bhairava Painting Service - Home">
+          <a href="#home" aria-label="JK Bairava Painting Service - Home">
             <img
               src={LOGO_URL}
-              alt="JK Bhairava Painting Service logo"
+              alt="JK Bairava Painting Service logo"
               className="h-16 md:h-20 w-auto"
             />
           </a>

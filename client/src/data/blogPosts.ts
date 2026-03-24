@@ -51,7 +51,7 @@ Always paint a large swatch (at least A3 size) directly on the wall and observe 
 
 ## Ask a Professional
 
-If you're unsure, our team at JK Bhairava Painting Service offers free colour consultations as part of our quoting process. We've painted hundreds of Melbourne homes and can guide you toward a palette that suits your architecture, furnishings, and personal style.
+If you're unsure, our team at JK Bairava Painting Service offers free colour consultations as part of our quoting process. We've painted hundreds of Melbourne homes and can guide you toward a palette that suits your architecture, furnishings, and personal style.
 
 [Get a free quote today](/thank-you) — call **0439 731 898** or use our contact form.
     `,
@@ -97,7 +97,7 @@ Technically yes, but it's not recommended. Exterior paints off-gas more VOCs and
 
 ## Our Recommendation
 
-Always use the right paint for the right surface. At JK Bhairava Painting Service, we use premium Dulux and Taubmans products suited to Melbourne's climate — giving you a finish that looks great and lasts.
+Always use the right paint for the right surface. At JK Bairava Painting Service, we use premium Dulux and Taubmans products suited to Melbourne's climate — giving you a finish that looks great and lasts.
 
 Call **0439 731 898** for a free quote.
     `,
@@ -139,7 +139,7 @@ Sometimes there's no structural reason — the colour scheme simply looks tired 
 - **Exterior walls**: Every 8–12 years (depending on climate exposure)
 - **Timber trim and doors**: Every 3–5 years
 
-If your home is showing any of these signs, contact JK Bhairava Painting Service for a free assessment. We service all areas across Melbourne — call **0439 731 898**.
+If your home is showing any of these signs, contact JK Bairava Painting Service for a free assessment. We service all areas across Melbourne — call **0439 731 898**.
     `,
   },
   {

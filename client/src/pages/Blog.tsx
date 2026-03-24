@@ -29,7 +29,7 @@ export default function Blog() {
           <Link href="/">
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663446241794/gXa9oYk3AXa84PnPVwhkNy/logo_0186860f.png"
-              alt="JK Bhairava Painting Service"
+              alt="JK Bairava Painting Service"
               style={{ height: "48px", width: "auto", cursor: "pointer" }}
             />
           </Link>
@@ -143,7 +143,7 @@ export default function Blog() {
 
       {/* Footer */}
       <footer style={{ background: "#0d1b2a", color: "#aaa", textAlign: "center", padding: "20px 24px", fontSize: "13px" }}>
-        © {new Date().getFullYear()} JK Bhairava Painting Service. All rights reserved. &nbsp;|&nbsp; Made by{" "}
+        © {new Date().getFullYear()} JK Bairava Painting Service. All rights reserved. &nbsp;|&nbsp; Made by{" "}
         <a href="https://www.milmantech.au" target="_blank" rel="noopener noreferrer" style={{ color: "#7cfc00", textDecoration: "none" }}>
           milmantech.au
         </a>
