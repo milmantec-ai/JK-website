@@ -103,7 +103,7 @@ export default function ContactSection() {
             CALL 0439 731 898
           </a>
           <a
-            href="mailto:jkPainting@gmail.com"
+            href="mailto:jkbpaintings@gmail.com"
             className="inline-flex items-center gap-3 px-10 py-5 text-sm font-semibold uppercase tracking-wider border-2 transition-all duration-300 hover:bg-gray-800 hover:text-white hover:border-gray-800"
             style={{
               color: "#0d1b2a",

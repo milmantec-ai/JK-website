@@ -38,12 +38,12 @@ export default function Header() {
       >
         <div className="flex items-center gap-6 flex-wrap">
           <a
-            href="mailto:jkPainting@gmail.com"
+            href="mailto:jkbpaintings@gmail.com"
             className="flex items-center gap-2 hover:text-green-400 transition-colors"
             style={{ color: "#ffffff", textDecoration: "none" }}
           >
             <Mail size={14} />
-            <span>jkPainting@gmail.com</span>
+            <span>jkbpaintings@gmail.com</span>
           </a>
           <a
             href="https://maps.google.com/?q=21+Jamieson+St+St+Albans+VIC+3021"

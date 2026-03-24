@@ -54,7 +54,7 @@ export default function Footer() {
                   <span>0439 731 898</span>
                 </a>
                 <a
-                  href="mailto:jkPainting@gmail.com"
+                  href="mailto:jkbpaintings@gmail.com"
                   className="flex items-center gap-3 text-white/80 hover:text-white transition-colors"
                   style={{
                     fontFamily: '"Open Sans", sans-serif',
@@ -63,7 +63,7 @@ export default function Footer() {
                   }}
                 >
                   <Mail size={16} style={{ color: "#00ff00" }} />
-                  <span>jkPainting@gmail.com</span>
+                  <span>jkbpaintings@gmail.com</span>
                 </a>
                 <a
                   href="https://maps.google.com/?q=21+Jamieson+St+St+Albans+VIC+3021"
