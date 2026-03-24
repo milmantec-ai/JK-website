@@ -146,22 +146,29 @@ export default function Footer() {
         style={{ backgroundColor: "#091422" }}
       >
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p
-            className="text-white/50 text-xs"
-            style={{ fontFamily: '"Open Sans", sans-serif' }}
-          >
-            &copy; {new Date().getFullYear()} JK Bhairava Painting Service. All
-            rights reserved. Designed by{" "}
-            <a
-              href="https://milmantech.au"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
-              style={{ textDecoration: "none" }}
+          <div className="flex flex-col sm:flex-row items-center gap-2">
+            <p
+              className="text-white/50 text-xs"
+              style={{ fontFamily: '"Open Sans", sans-serif' }}
             >
-              milmantech.au
-            </a>
-          </p>
+              &copy; {new Date().getFullYear()} JK Bhairava Painting Service. All rights reserved.
+            </p>
+            <p
+              className="text-white/50 text-xs"
+              style={{ fontFamily: '"Open Sans", sans-serif' }}
+            >
+              Made by{" "}
+              <a
+                href="https://www.milmantech.au"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors font-semibold"
+                style={{ textDecoration: "none" }}
+              >
+                milmantech.au
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-4">
             {[
               { label: "Home", href: "#home" },
@@ -171,7 +178,7 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-white/50 hover:text-white/80 text-xs transition-colors"
+                className="text-white/50 hover:text-white/80 text-xs transition-colors hidden sm:inline"
                 style={{
                   fontFamily: '"Open Sans", sans-serif',
                   textDecoration: "none",
