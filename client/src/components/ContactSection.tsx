@@ -8,6 +8,7 @@ import { useState } from "react";
 import { MessageSquare, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
+import { useLocation } from "wouter";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ export default function ContactSection() {
     message: "",
   });
   const contactMutation = trpc.contact.submit.useMutation();
+  const [, navigate] = useLocation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,8 +28,9 @@ export default function ContactSection() {
         email: formData.email,
         message: formData.message,
       });
-      toast.success("Thank you! Your message has been sent. We'll get back to you soon.");
       setFormData({ name: "", email: "", message: "" });
+      // Redirect to /thank-you for Google Ads conversion tracking
+      navigate("/thank-you");
     } catch (error) {
       console.error("Contact form error:", error);
       toast.error("Failed to send message. Please try again.");

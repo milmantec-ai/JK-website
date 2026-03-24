@@ -13,3 +13,13 @@
 - [x] Configure Gmail credentials (GMAIL_USER and GMAIL_PASSWORD)
 - [x] Integrate contact form with tRPC backend
 - [x] Write and run vitest tests for contact submission
+
+## New Features (Round 3)
+
+- [ ] Create /thank-you page for Google Ads conversion tracking
+- [ ] Update contact form to redirect to /thank-you after successful submission
+- [ ] Register /thank-you route in App.tsx
+- [ ] Build blog section with painting tips articles
+- [ ] Build before/after case study posts
+- [ ] Add blog route /blog and individual post route /blog/:slug
+- [ ] Add Blog link to navigation

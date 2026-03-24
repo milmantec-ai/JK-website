@@ -11,6 +11,7 @@ import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FaqSection from "@/components/FaqSection";
 import GallerySection from "@/components/GallerySection";
+import BlogPreviewSection from "@/components/BlogPreviewSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -26,6 +27,7 @@ export default function Home() {
         <TestimonialsSection />
         <FaqSection />
         <GallerySection />
+        <BlogPreviewSection />
         <ContactSection />
       </main>
       <Footer />
