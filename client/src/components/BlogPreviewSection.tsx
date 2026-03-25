@@ -12,13 +12,13 @@ export default function BlogPreviewSection() {
   return (
     <section
       id="blog"
-      className="py-16 px-4 md:px-8 lg:px-16"
-      style={{ backgroundColor: "#f8f9fa" }}
+      className="py-20 px-4 md:px-8 lg:px-16"
+      style={{ backgroundColor: "#ffffff" }}
       aria-label="Latest blog posts and painting tips"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-14">
           <p
             className="text-sm uppercase tracking-[3px] mb-3"
             style={{ color: "#00ff00", fontFamily: '"Open Sans", sans-serif', fontWeight: 600 }}
@@ -26,13 +26,13 @@ export default function BlogPreviewSection() {
             // KNOWLEDGE HUB //
           </p>
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl"
             style={{ fontFamily: '"Rajdhani", sans-serif', fontWeight: 700, color: "#0d1b2a" }}
           >
             Painting Tips & Case Studies<span style={{ color: "#e74c3c" }}>.</span>
           </h2>
           <p
-            className="text-base max-w-2xl mx-auto"
+            className="text-base mt-4 max-w-2xl mx-auto"
             style={{ fontFamily: '"Open Sans", sans-serif', color: "#666" }}
           >
             Expert advice from Melbourne's professional painters — colour guides, preparation tips, and real project transformations.
